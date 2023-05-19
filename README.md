@@ -1,4 +1,5 @@
-# data-structures-algorithms-go
+# Data Structures and Alogrithms in Go
+
 Implementation of basic data structures and algorithms in Golang
 
 
