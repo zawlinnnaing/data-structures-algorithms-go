@@ -1,4 +1,4 @@
-package main
+package linkedlists
 
 import "fmt"
 
@@ -27,8 +27,4 @@ func SinglyLinkedListExample() {
 	node1.AddNode(&node2)
 
 	PrintNode(&head)
-}
-
-func main() {
-	SinglyLinkedListExample()
 }
