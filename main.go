@@ -15,4 +15,6 @@ func main() {
 	singly.InsertAfterExample()
 	fmt.Println("Running Insert End example:")
 	singly.InsertEndExample()
+	fmt.Println("Running search node example:")
+	singly.SearchNodeExample()
 }
