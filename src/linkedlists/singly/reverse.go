@@ -1,5 +1,7 @@
 package singly
 
+// Time complexity: O(n), Traversing every node
+// Space complexity: O(1), Only three pointers needed
 func ReverseLinkedList(node *SinglyLinkedListNode) *SinglyLinkedListNode {
 	current := node
 	var prev *SinglyLinkedListNode
@@ -14,13 +16,28 @@ func ReverseLinkedList(node *SinglyLinkedListNode) *SinglyLinkedListNode {
 	return node
 }
 
+// Algorithm explanation: https://www.geeksforgeeks.org/reverse-a-linked-list/#:~:text=Reverse%20a%20linked%20list%20using%20Recursion%3A
+// Diagram: https://media.geeksforgeeks.org/wp-content/cdn-uploads/2009/07/Linked-List-Rverse.gif
+// Time complexity: O(n), Traversing every node
+// Space complexity: O(n), Function call stack = Number of nodes
+func ReverseLinkedListRecursive(head *SinglyLinkedListNode) *SinglyLinkedListNode {
+	if head == nil || head.Next == nil {
+		return head
+	}
+	rest := ReverseLinkedListRecursive(head.Next)
+	head.Next.Next = head
+	head.Next = nil
+	return rest
+}
+
 func ReverseLinkedListExample() {
-	head := SinglyLinkedListNode(SinglyLinkedListNode{Data: "head"})
-	node1 := SinglyLinkedListNode(SinglyLinkedListNode{Data: "node1"})
-	node2 := SinglyLinkedListNode(SinglyLinkedListNode{Data: "node2"})
+	nodes := PrepareExample()
+	reversedNode := ReverseLinkedList(&nodes[0])
+	PrintNode(reversedNode)
+}
 
-	head.AddNode(&node1).AddNode(&node2)
-
-	ReverseLinkedList(&head)
-	PrintNode(&node2)
+func ReverseLinkedListRecursiveExample() {
+	nodes := PrepareExample()
+	reversedNode := ReverseLinkedListRecursive(&nodes[0])
+	PrintNode(reversedNode)
 }

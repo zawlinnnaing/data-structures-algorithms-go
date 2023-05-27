@@ -25,6 +25,15 @@ func (node *SinglyLinkedListNode) Length() int {
 	return nodeCount
 }
 
+func PrepareExample() [3]SinglyLinkedListNode {
+	head := SinglyLinkedListNode(SinglyLinkedListNode{Data: "head"})
+	node1 := SinglyLinkedListNode(SinglyLinkedListNode{Data: "node1"})
+	node2 := SinglyLinkedListNode(SinglyLinkedListNode{Data: "node2"})
+
+	head.AddNode(&node1).AddNode(&node2)
+	return [3]SinglyLinkedListNode{head, node1, node2}
+}
+
 func RecursiveLength(node *SinglyLinkedListNode) int {
 	if node == nil {
 		return 0

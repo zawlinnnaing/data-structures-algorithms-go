@@ -19,4 +19,6 @@ func main() {
 	singly.SearchNodeExample()
 	fmt.Println("Running reverse linked list example:")
 	singly.ReverseLinkedListExample()
+	fmt.Println("Running reverse linked list recursive example:")
+	singly.ReverseLinkedListRecursiveExample()
 }
