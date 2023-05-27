@@ -15,6 +15,23 @@ func (node *SinglyLinkedListNode) AddNode(nodeToAdd *SinglyLinkedListNode) *Sing
 	return nodeToAdd
 }
 
+func (node *SinglyLinkedListNode) Length() int {
+	nodeCount := 1
+	tempNode := node
+	for tempNode.Next != nil {
+		tempNode = tempNode.Next
+		nodeCount += 1
+	}
+	return nodeCount
+}
+
+func RecursiveLength(node *SinglyLinkedListNode) int {
+	if node == nil {
+		return 0
+	}
+	return 1 + RecursiveLength(node.Next)
+}
+
 func PrintNode(node *SinglyLinkedListNode) {
 	tempNode := node
 	for tempNode != nil {
@@ -64,6 +81,9 @@ func SimpleInsertExample() {
 	head.AddNode(&node1).AddNode(&node2)
 
 	PrintNode(&head)
+	fmt.Println("Length of linked list", head.Length())
+	fmt.Println("Length of linked list in recursive way", RecursiveLength(&head))
+	fmt.Println()
 }
 
 func InsertHeadExample() {

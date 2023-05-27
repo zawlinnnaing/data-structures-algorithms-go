@@ -17,4 +17,6 @@ func main() {
 	singly.InsertEndExample()
 	fmt.Println("Running search node example:")
 	singly.SearchNodeExample()
+	fmt.Println("Running reverse linked list example:")
+	singly.ReverseLinkedListExample()
 }
