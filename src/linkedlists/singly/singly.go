@@ -84,14 +84,11 @@ func InsertEnd(head *SinglyLinkedListNode, nodeToInsert *SinglyLinkedListNode) {
 }
 
 func SimpleInsertExample() {
-	head := SinglyLinkedListNode(SinglyLinkedListNode{Data: "head"})
-	node1 := SinglyLinkedListNode(SinglyLinkedListNode{Data: "node1"})
-	node2 := SinglyLinkedListNode(SinglyLinkedListNode{Data: "node2"})
-	head.AddNode(&node1).AddNode(&node2)
+	nodes := PrepareExample()
 
-	PrintNode(&head)
-	fmt.Println("Length of linked list", head.Length())
-	fmt.Println("Length of linked list in recursive way", RecursiveLength(&head))
+	PrintNode(&nodes[0])
+	fmt.Println("Length of linked list", nodes[0].Length())
+	fmt.Println("Length of linked list in recursive way", RecursiveLength(&nodes[0]))
 	fmt.Println()
 }
 
@@ -120,14 +117,10 @@ func InsertAfterExample() {
 }
 
 func InsertEndExample() {
-	head := SinglyLinkedListNode(SinglyLinkedListNode{Data: "head"})
-	node1 := SinglyLinkedListNode(SinglyLinkedListNode{Data: "node1"})
-	node2 := SinglyLinkedListNode(SinglyLinkedListNode{Data: "node2"})
-	head.AddNode(&node1).AddNode(&node2)
-
+	nodes := PrepareExample()
 	node3 := SinglyLinkedListNode(SinglyLinkedListNode{Data: "node3"})
 
-	InsertEnd(&head, &node3)
+	InsertEnd(&nodes[0], &node3)
 
-	PrintNode(&head)
+	PrintNode(&nodes[0])
 }
