@@ -21,4 +21,6 @@ func main() {
 	singly.ReverseLinkedListExample()
 	fmt.Println("Running reverse linked list recursive example:")
 	singly.ReverseLinkedListRecursiveExample()
+	fmt.Println("Running Delete linked list example:")
+	singly.DeleteExample()
 }
