@@ -28,6 +28,20 @@ func DeleteMiddle(head *SinglyLinkedListNode, position int) *SinglyLinkedListNod
 
 }
 
+func DeleteEnd(head *SinglyLinkedListNode) {
+	prev := head
+	current := head
+	for prev.Next != nil {
+		// Meaning current node is last node
+		if current.Next == nil {
+			prev.Next = nil
+			break
+		}
+		prev = current
+		current = current.Next
+	}
+}
+
 func DeleteExample() {
 	deleteHeadNodes := PrepareExample()
 	remainingNodes := DeleteHead(&deleteHeadNodes[0])
@@ -37,4 +51,8 @@ func DeleteExample() {
 	fmt.Println("Running delete middle example:")
 	DeleteMiddle(&deleteMiddleNodes[0], 1)
 	PrintNode(&deleteMiddleNodes[0])
+	fmt.Println("Running delete end example:")
+	deleteEndNodes := PrepareExample()
+	DeleteEnd(&deleteEndNodes[0])
+	PrintNode(&deleteEndNodes[0])
 }
