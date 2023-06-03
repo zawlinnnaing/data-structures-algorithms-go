@@ -38,6 +38,19 @@ func DeleteEnd(head *SinglyLinkedListNode) {
 	prev.Next = nil
 }
 
+func DeleteNodeRecursivelyByValue(head *SinglyLinkedListNode, prev *SinglyLinkedListNode, value string) {
+	if head == nil {
+		return
+	}
+	if head.Data == value {
+		head = head.Next
+		prev.Next = head
+		return
+	}
+	prev = head
+	DeleteNodeRecursivelyByValue(head.Next, prev, value)
+}
+
 func DeleteExample() {
 	deleteHeadNodes := PrepareExample()
 	remainingNodes := DeleteHead(&deleteHeadNodes[0])
@@ -51,4 +64,8 @@ func DeleteExample() {
 	deleteEndNodes := PrepareExample()
 	DeleteEnd(&deleteEndNodes[0])
 	PrintNode(&deleteEndNodes[0])
+	fmt.Println("Running delete node recursively:")
+	nodesToDeleteRecursively := PrepareExample()
+	DeleteNodeRecursivelyByValue(&nodesToDeleteRecursively[0], nil, "node1")
+	PrintNode(&nodesToDeleteRecursively[0])
 }
