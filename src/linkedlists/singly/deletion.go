@@ -31,15 +31,11 @@ func DeleteMiddle(head *SinglyLinkedListNode, position int) *SinglyLinkedListNod
 func DeleteEnd(head *SinglyLinkedListNode) {
 	prev := head
 	current := head
-	for prev.Next != nil {
-		// Meaning current node is last node
-		if current.Next == nil {
-			prev.Next = nil
-			break
-		}
+	for current.Next != nil {
 		prev = current
 		current = current.Next
 	}
+	prev.Next = nil
 }
 
 func DeleteExample() {
