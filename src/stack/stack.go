@@ -53,7 +53,7 @@ func (stack *Stack[T]) PrintStack(prefix string) {
 	}
 }
 
-func New[T stackEntry]() *Stack[T] {
+func CreateStack[T stackEntry]() *Stack[T] {
 	stack := Stack[T]{topPointer: -1}
 	return &stack
 }

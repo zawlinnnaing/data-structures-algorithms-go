@@ -41,6 +41,6 @@ func (stack *SpecialStack) Pop() (int, error) {
 }
 
 func CreateSpecialStack() SpecialStack {
-	specialStack := SpecialStack{Stack: *New[int](), minPointersStack: *New[int]()}
+	specialStack := SpecialStack{Stack: *CreateStack[int](), minPointersStack: *CreateStack[int]()}
 	return specialStack
 }

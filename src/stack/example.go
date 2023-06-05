@@ -18,8 +18,24 @@ func runSpecialStackExample() {
 	}
 }
 
+func runSpaceOptimizedExample() {
+	spaceOptimizedStack := CreateSpaceOptimizedSpecialStack()
+	spaceOptimizedStack.Push(0)
+	spaceOptimizedStack.Push(-1)
+	spaceOptimizedStack.Push(-3)
+	spaceOptimizedStack.Push(5)
+	spaceOptimizedStack.Push(-2)
+	spaceOptimizedStack.Pop()
+	spaceOptimizedStack.Pop()
+	spaceOptimizedStack.Push(-6)
+	spaceOptimizedStack.Pop()
+	fmt.Printf("Min value for space optimized stack: %d \n", spaceOptimizedStack.GetMin())
+}
+
 func RunAllStackExamples() {
 	fmt.Println("Running stack examples --------")
 	fmt.Println("Running special stack examples")
 	runSpecialStackExample()
+	fmt.Println("Running space optimized stack examples")
+	runSpaceOptimizedExample()
 }
