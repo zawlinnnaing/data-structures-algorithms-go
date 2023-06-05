@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/zawlinnnaing/data-structures-algorithms-go/src/linkedlists/singly"
+	"github.com/zawlinnnaing/data-structures-algorithms-go/src/stack"
 )
 
 func main() {
@@ -25,4 +26,5 @@ func main() {
 	singly.DeleteExample()
 	fmt.Println("Running get node from end example:")
 	singly.GetNodeFromEndExample()
+	stack.RunAllStackExamples()
 }
