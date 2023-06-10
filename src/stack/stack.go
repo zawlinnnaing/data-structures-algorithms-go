@@ -23,6 +23,7 @@ func (stack *Stack[T]) Pop() (T, error) {
 
 	stack.topPointer -= 1
 	value = stack.elements[stack.topPointer]
+	stack.elements = stack.elements[:len(stack.elements)-1]
 	return value, nil
 }
 
@@ -53,7 +54,7 @@ func (stack *Stack[T]) PrintStack(prefix string) {
 	}
 }
 
-func CreateStack[T stackEntry]() *Stack[T] {
-	stack := Stack[T]{topPointer: -1}
+func CreateStack[T stackEntry](initialElements []T) *Stack[T] {
+	stack := Stack[T]{topPointer: len(initialElements) - 1, elements: initialElements}
 	return &stack
 }

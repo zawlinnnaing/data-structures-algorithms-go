@@ -44,5 +44,5 @@ func (stack *SpaceOptimizedSpecialStack) GetMin() int {
 }
 
 func CreateSpaceOptimizedSpecialStack() SpaceOptimizedSpecialStack {
-	return SpaceOptimizedSpecialStack{wrapperStack: *CreateStack[int]()}
+	return SpaceOptimizedSpecialStack{wrapperStack: *CreateStack[int](nil)}
 }
