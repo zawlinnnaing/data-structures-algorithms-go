@@ -33,15 +33,8 @@ func runSpaceOptimizedExample() {
 }
 
 func runMonotonicStackExample(mode MonotonicStackMode) {
-	var initialElements []int
-	if mode == Increasing {
-		initialElements = []int{1, 3, 4, 6}
-	} else {
-		initialElements = []int{6, 4, 3, 1}
-	}
-	monotonicStack := CreateMonotonicStack(mode, initialElements)
-	monotonicStack.innerStack.PrintStack("")
-	elementsToPush := []int{2, 4, 3}
+	elementsToPush := []int{2, 4, 3, 8, 6, 7}
+	monotonicStack := CreateMonotonicStack(mode)
 	for i := 0; i < len(elementsToPush); i++ {
 		fmt.Printf("Monotonic stack after pushing %d: \n", elementsToPush[i])
 		monotonicStack.Push(elementsToPush[i])

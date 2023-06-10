@@ -21,9 +21,9 @@ func (stack *Stack[T]) Pop() (T, error) {
 		return value, errors.New("Stack is Empty")
 	}
 
-	stack.topPointer -= 1
 	value = stack.elements[stack.topPointer]
 	stack.elements = stack.elements[:len(stack.elements)-1]
+	stack.topPointer -= 1
 	return value, nil
 }
 

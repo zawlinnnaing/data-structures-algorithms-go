@@ -32,9 +32,9 @@ func (stack *MonotonicStack) shouldPopElement(elementFromStack int, incomingElem
 	return elementFromStack <= incomingElement
 }
 
-func CreateMonotonicStack(mode MonotonicStackMode, initialElements []int) MonotonicStack {
+func CreateMonotonicStack(mode MonotonicStackMode) MonotonicStack {
 	return MonotonicStack{
-		innerStack: CreateStack(initialElements),
+		innerStack: CreateStack[int](nil),
 		Mode:       mode,
 	}
 }
