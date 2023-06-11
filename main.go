@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/zawlinnnaing/data-structures-algorithms-go/src/linkedlists/singly"
+	"github.com/zawlinnnaing/data-structures-algorithms-go/src/queue"
 	"github.com/zawlinnnaing/data-structures-algorithms-go/src/stack"
 )
 
@@ -27,4 +28,5 @@ func main() {
 	fmt.Println("Running get node from end example:")
 	singly.GetNodeFromEndExample()
 	stack.RunAllStackExamples()
+	queue.RunQueueExamples()
 }
