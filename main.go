@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/zawlinnnaing/data-structures-algorithms-go/src/channel"
+	"github.com/zawlinnnaing/data-structures-algorithms-go/src/stack"
 )
 
 func main() {
@@ -25,5 +25,8 @@ func main() {
 	// singly.GetNodeFromEndExample()
 	// stack.RunAllStackExamples()
 	// queue.RunQueueExamples()
-	channel.RunLeakyBufferExample()
+	// channel.RunLeakyBufferExample()
+	// sort.RunBubbleSortExample()
+	// queue.RunQueueExample()
+	stack.RunStackExample()
 }
