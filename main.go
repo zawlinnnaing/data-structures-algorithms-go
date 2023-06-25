@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/zawlinnnaing/data-structures-algorithms-go/src/stack"
+	"github.com/zawlinnnaing/data-structures-algorithms-go/src/array"
 )
 
 func main() {
@@ -28,5 +28,6 @@ func main() {
 	// channel.RunLeakyBufferExample()
 	// sort.RunBubbleSortExample()
 	// queue.RunQueueExample()
-	stack.RunStackExample()
+	// stack.RunStackExample()
+	array.RunRingBufferExample()
 }
