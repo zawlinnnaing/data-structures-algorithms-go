@@ -13,7 +13,8 @@ func RunDoublyLinkedListExample() {
 	doubly.Append("World")
 	doubly.InsertAt("Zhiyu", 2)
 	doubly.RemoveAt(2)
-	doubly.InsertAt("Zhiyu", 1)
-
 	fmt.Println("Result:", doubly)
+	doubly.Append("Zhiyu")
+	doubly.Remove("Zhiyu")
+	fmt.Println("After removed", doubly)
 }

@@ -59,14 +59,14 @@ func (this *DoublyLinkedList[T]) InsertAt(value T, index int) {
 	node := DoublyNode[T]{data: value}
 	current := this.getAt(index)
 
-	node.next = &current
+	node.next = current
 	node.prev = current.prev
 
 	current.prev = &node
 	node.prev.next = &node
 }
 
-func (this *DoublyLinkedList[T]) RemoveAt(index int) (node DoublyNode[T]) {
+func (this *DoublyLinkedList[T]) RemoveAt(index int) DoublyNode[T] {
 	if this.head == nil || this.tail == nil {
 		panic("List is empty")
 	}
@@ -74,12 +74,11 @@ func (this *DoublyLinkedList[T]) RemoveAt(index int) (node DoublyNode[T]) {
 	if index > this.length {
 		panic("Remove index is greater than list length")
 	}
-	this.length--
-	node = this.getAt(index)
+	node := this.getAt(index)
 
-	this.removeNode(&node)
+	this.removeNode(node)
 
-	return node
+	return *node
 }
 
 func (this *DoublyLinkedList[T]) Remove(value T) DoublyNode[T] {
@@ -93,10 +92,9 @@ func (this *DoublyLinkedList[T]) Remove(value T) DoublyNode[T] {
 		}
 		node = node.next
 	}
-	if node.data != value {
+	if node == nil {
 		panic(fmt.Sprintf("Cannot find value: %v in the list", value))
 	}
-	this.length--
 	this.removeNode(node)
 
 	return *node
@@ -105,6 +103,7 @@ func (this *DoublyLinkedList[T]) Remove(value T) DoublyNode[T] {
 func (this *DoublyLinkedList[T]) String() (result string) {
 	curr := this.head
 	for i := 0; i < this.length; i++ {
+		// fmt.Println("curr", curr)
 		result += fmt.Sprintf(" [%v] ", curr.data)
 		if i != this.length-1 {
 			result += "->"
@@ -114,7 +113,15 @@ func (this *DoublyLinkedList[T]) String() (result string) {
 	return
 }
 
-func (this *DoublyLinkedList[T]) getAt(index int) DoublyNode[T] {
+func (this *DoublyLinkedList[T]) Get(index int) (value T) {
+	node := this.getAt(index)
+	if node == nil {
+		return
+	}
+	return node.data
+}
+
+func (this *DoublyLinkedList[T]) getAt(index int) *DoublyNode[T] {
 	current := this.head
 	for i := 0; i < this.length; i++ {
 		if i == index {
@@ -122,26 +129,29 @@ func (this *DoublyLinkedList[T]) getAt(index int) DoublyNode[T] {
 		}
 		current = current.next
 	}
-	return *current
+	return current
 }
 
 func (this *DoublyLinkedList[T]) removeNode(node *DoublyNode[T]) {
-	if node.next != nil {
-		node.next.prev = node.prev
-	}
-	if node.prev != nil {
-		node.prev.next = node.next
-	}
+	this.length--
 	if node == this.head {
 		this.head = node.next
 	}
 	if node == this.tail {
 		this.tail = node.prev
 	}
+	if node.next != nil {
+		node.next.prev = node.prev
+	}
+	if node.prev != nil {
+		node.prev.next = node.next
+	}
 	if this.length == 0 {
 		this.head = nil
 		this.tail = nil
 	}
+	node.next = nil
+	node.prev = nil
 }
 
 func NewDoublyLinkedList[T comparable]() *DoublyLinkedList[T] {
