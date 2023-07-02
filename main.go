@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/zawlinnnaing/data-structures-algorithms-go/src/recursion"
+	"github.com/zawlinnnaing/data-structures-algorithms-go/src/examples"
 )
 
 func main() {
@@ -30,5 +30,6 @@ func main() {
 	// queue.RunQueueExample()
 	// stack.RunStackExample()
 	// array.RunRingBufferExample()
-	recursion.PathFinderExample()
+	// recursion.PathFinderExample()
+	examples.RunDoublyLinkedListExample()
 }
