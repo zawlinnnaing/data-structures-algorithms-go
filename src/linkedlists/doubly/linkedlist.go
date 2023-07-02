@@ -52,7 +52,7 @@ func (this *DoublyLinkedList[T]) InsertAt(value T, index int) {
 		this.Append(value)
 		return
 	}
-	if index > this.length {
+	if index >= this.length {
 		panic(fmt.Sprintf("Index must not be greater than length: %v.", this.length))
 	}
 	this.length++
@@ -71,7 +71,7 @@ func (this *DoublyLinkedList[T]) RemoveAt(index int) DoublyNode[T] {
 		panic("List is empty")
 	}
 
-	if index > this.length {
+	if index >= this.length {
 		panic("Remove index is greater than list length")
 	}
 	node := this.getAt(index)
@@ -123,10 +123,7 @@ func (this *DoublyLinkedList[T]) Get(index int) (value T) {
 
 func (this *DoublyLinkedList[T]) getAt(index int) *DoublyNode[T] {
 	current := this.head
-	for i := 0; i < this.length; i++ {
-		if i == index {
-			break
-		}
+	for i := 0; i < index; i++ {
 		current = current.next
 	}
 	return current
