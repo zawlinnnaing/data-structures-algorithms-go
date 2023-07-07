@@ -32,5 +32,6 @@ func main() {
 	// array.RunRingBufferExample()
 	// recursion.PathFinderExample()
 	// examples.RunDoublyLinkedListExample()
-	examples.BinaryNodeTraversalsExample()
+	// examples.BinaryNodeTraversalsExample()
+	examples.RunBreathFirstSearchExample()
 }
