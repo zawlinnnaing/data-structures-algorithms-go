@@ -17,7 +17,7 @@ func (queue *Queue[T]) Push(value T) {
 	node := &Node[T]{value: value}
 	queue.length += 1
 	// In case queue is empty
-	if queue.tail == nil {
+	if queue.tail == nil || queue.head == nil {
 		queue.head, queue.tail = node, node
 		return
 	}
