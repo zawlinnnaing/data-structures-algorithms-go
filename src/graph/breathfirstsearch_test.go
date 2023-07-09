@@ -8,7 +8,7 @@ import (
 )
 
 func TestBreathFirstSearch(t *testing.T) {
-	matrix := graph.AdjustMatrix{
+	matrix := graph.AdjacencyMatrix{
 		[]int{0, 20, 0},
 		[]int{0, 0, 40},
 		[]int{0, 0, 0},

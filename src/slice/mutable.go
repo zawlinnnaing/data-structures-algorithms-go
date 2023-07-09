@@ -10,6 +10,15 @@ func (this *Mutable[T]) Push(value T) {
 	this.elements = append(this.elements, value)
 }
 
+func (this *Mutable[T]) Pop() (value T) {
+	if len(this.elements) == 0 {
+		return
+	}
+	value = this.elements[len(this.elements)-1]
+	this.elements = this.elements[:len(this.elements)-1]
+	return
+}
+
 func (this *Mutable[T]) Reverse() {
 	reversed := []T{}
 	for idx := range this.elements {

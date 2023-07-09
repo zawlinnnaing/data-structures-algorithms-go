@@ -5,9 +5,9 @@ import (
 	"github.com/zawlinnnaing/data-structures-algorithms-go/src/slice"
 )
 
-type AdjustMatrix = [][]int
+type AdjacencyMatrix = [][]int
 
-func BreathFirstSearch(matrix AdjustMatrix, source int, needle int) []int {
+func BreathFirstSearch(matrix AdjacencyMatrix, source int, needle int) []int {
 	queue := queue.NewQueue[int]()
 	seen := make([]bool, len(matrix))
 	prev := make([]int, len(matrix))
