@@ -3,7 +3,8 @@ package graph
 import "github.com/zawlinnnaing/data-structures-algorithms-go/src/slice"
 
 type GraphEdge struct {
-	To int
+	To     int
+	Weight int
 }
 
 type AdjacencyList = [][]GraphEdge
