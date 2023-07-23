@@ -26,6 +26,7 @@ Implementation of basic data structures and algorithms in Golang. Following data
 - [Breath-first search tree](src/tree/breathfirstsearch.go)
 - [Compare two binary trees](src/tree/compare.go) (Compares whether two binary trees have exact shape and values)
 - [Breath-first search Graph](src/graph/breathfirstsearch.go)
+- [Dijkstra's Shortest Path](src/graph/shortestpath.go)
 
 ## To dos
 
