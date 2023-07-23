@@ -10,10 +10,11 @@ Implementation of basic data structures and algorithms in Golang. Following data
 - [Singly Linked List](src/linkedlists/singly/singly.go)
 - [Doubly Linked List](src/linkedlists/doubly/linkedlist.go)
 - [Queue](src/queue/queue.go)
-- [LRU Cache](src/queue/lrucache.go)
+- [LRU Cache with Queue](src/queue/lrucache.go)
 - [Stack](src/stack/cleanstack.go)
 - [Monotonic Stack](src/stack/monotonic.go)
 - [Binary Tree](src/tree/binary.go)
+- [LRU Cache with Hash Map and Doubly Linked List](src/hashmap/LRU.go)
 
 ## Algorithms
 
