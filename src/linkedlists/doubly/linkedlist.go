@@ -3,9 +3,9 @@ package doubly
 import "fmt"
 
 type DoublyNode[T comparable] struct {
-	next *DoublyNode[T]
-	prev *DoublyNode[T]
-	data T
+	Next *DoublyNode[T]
+	Prev *DoublyNode[T]
+	Data T
 }
 
 type DoublyLinkedList[T comparable] struct {
@@ -16,7 +16,7 @@ type DoublyLinkedList[T comparable] struct {
 
 func (linkedList *DoublyLinkedList[T]) Prepend(value T) {
 	linkedList.length++
-	node := DoublyNode[T]{data: value}
+	node := DoublyNode[T]{Data: value}
 
 	if linkedList.head == nil {
 		linkedList.head = &node
@@ -24,22 +24,22 @@ func (linkedList *DoublyLinkedList[T]) Prepend(value T) {
 		return
 	}
 
-	node.next = linkedList.head
-	linkedList.head.prev = &node
+	node.Next = linkedList.head
+	linkedList.head.Prev = &node
 	linkedList.head = &node
 }
 
 func (this *DoublyLinkedList[T]) Append(value T) {
 	this.length++
-	node := DoublyNode[T]{data: value}
+	node := DoublyNode[T]{Data: value}
 	if this.tail == nil {
 		this.head = &node
 		this.tail = &node
 		return
 	}
 
-	this.tail.next = &node
-	node.prev = this.tail
+	this.tail.Next = &node
+	node.Prev = this.tail
 	this.tail = &node
 }
 
@@ -56,14 +56,14 @@ func (this *DoublyLinkedList[T]) InsertAt(value T, index int) {
 		panic(fmt.Sprintf("Index must not be greater than length: %v.", this.length))
 	}
 	this.length++
-	node := DoublyNode[T]{data: value}
+	node := DoublyNode[T]{Data: value}
 	current := this.getAt(index)
 
-	node.next = current
-	node.prev = current.prev
+	node.Next = current
+	node.Prev = current.Prev
 
-	current.prev = &node
-	node.prev.next = &node
+	current.Prev = &node
+	node.Prev.Next = &node
 }
 
 func (this *DoublyLinkedList[T]) RemoveAt(index int) DoublyNode[T] {
@@ -87,10 +87,10 @@ func (this *DoublyLinkedList[T]) Remove(value T) DoublyNode[T] {
 	}
 	node := this.head
 	for i := 0; i < this.length; i++ {
-		if node.data == value {
+		if node.Data == value {
 			break
 		}
-		node = node.next
+		node = node.Next
 	}
 	if node == nil {
 		panic(fmt.Sprintf("Cannot find value: %v in the list", value))
@@ -104,11 +104,11 @@ func (this *DoublyLinkedList[T]) String() (result string) {
 	curr := this.head
 	for i := 0; i < this.length; i++ {
 		// fmt.Println("curr", curr)
-		result += fmt.Sprintf(" [%v] ", curr.data)
+		result += fmt.Sprintf(" [%v] ", curr.Data)
 		if i != this.length-1 {
 			result += "->"
 		}
-		curr = curr.next
+		curr = curr.Next
 	}
 	return
 }
@@ -118,13 +118,13 @@ func (this *DoublyLinkedList[T]) Get(index int) (value T) {
 	if node == nil {
 		return
 	}
-	return node.data
+	return node.Data
 }
 
 func (this *DoublyLinkedList[T]) getAt(index int) *DoublyNode[T] {
 	current := this.head
 	for i := 0; i < index; i++ {
-		current = current.next
+		current = current.Next
 	}
 	return current
 }
@@ -132,27 +132,33 @@ func (this *DoublyLinkedList[T]) getAt(index int) *DoublyNode[T] {
 func (this *DoublyLinkedList[T]) removeNode(node *DoublyNode[T]) {
 	this.length--
 	if node == this.head {
-		this.head = node.next
+		this.head = node.Next
 	}
 	if node == this.tail {
-		this.tail = node.prev
+		this.tail = node.Prev
 	}
-	if node.next != nil {
-		node.next.prev = node.prev
+	if node.Next != nil {
+		node.Next.Prev = node.Prev
 	}
-	if node.prev != nil {
-		node.prev.next = node.next
+	if node.Prev != nil {
+		node.Prev.Next = node.Next
 	}
 	if this.length == 0 {
 		this.head = nil
 		this.tail = nil
 	}
-	node.next = nil
-	node.prev = nil
+	node.Next = nil
+	node.Prev = nil
 }
 
 func NewDoublyLinkedList[T comparable]() *DoublyLinkedList[T] {
 	return &DoublyLinkedList[T]{
 		length: 0,
+	}
+}
+
+func NewNode[V comparable](value V) *DoublyNode[V] {
+	return &DoublyNode[V]{
+		Data: value,
 	}
 }
